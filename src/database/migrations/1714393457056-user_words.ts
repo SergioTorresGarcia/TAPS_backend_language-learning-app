@@ -1,11 +1,11 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class Words1714393188539 implements MigrationInterface {
+export class UserWords1714393457056 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "words",
+                name: "user_words",
                 columns: [
                     {
                         name: "id",
@@ -15,36 +15,11 @@ export class Words1714393188539 implements MigrationInterface {
                         generationStrategy: "increment",
                     },
                     {
-                        name: "EN",
-                        type: "varchar",
-                        length: "100",
-                        isNullable: false
-                    },
-                    {
-                        name: "JP",
-                        type: "varchar",
-                        length: "100",
-                        isNullable: false,
-                        isUnique: true
-                    },
-                    {
-                        name: "romanji",
-                        type: "varchar",
-                        length: "100",
-                        isNullable: false
-                    },
-                    {
-                        name: "image",
-                        type: "varchar",
-                        length: "100",
-                        isNullable: false
-                    },
-                    {
-                        name: "level_id",
+                        name: "user_id",
                         type: "int"
                     },
                     {
-                        name: "challenge_id",
+                        name: "word_id",
                         type: "int"
                     },
                     {
@@ -61,14 +36,14 @@ export class Words1714393188539 implements MigrationInterface {
                 ],
                 foreignKeys: [
                     {
-                        columnNames: ["level_id"],
-                        referencedTableName: "levels",
+                        columnNames: ["user_id"],
+                        referencedTableName: "users",
                         referencedColumnNames: ["id"],
                         onDelete: "CASCADE"
                     },
                     {
-                        columnNames: ["challenge_id"],
-                        referencedTableName: "challenges",
+                        columnNames: ["word_id"],
+                        referencedTableName: "words",
                         referencedColumnNames: ["id"],
                         onDelete: "CASCADE"
                     }
@@ -78,7 +53,7 @@ export class Words1714393188539 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('words');
+        await queryRunner.dropTable('user_words');
     }
 
 }
