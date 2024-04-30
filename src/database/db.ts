@@ -11,8 +11,12 @@ import { Words1714393188539 } from "./migrations/1714393188539-words"
 import { UserWords1714393457056 } from "./migrations/1714393457056-user_words"
 
 // models
-// import { Role } from "../models/Role"
-// import { User } from "../models/User"
+import { Role } from "./models/Role"
+import { User } from "./models/User"
+import { Level } from "./models/Level"
+import { Challenge } from "./models/Challenge"
+import { Word } from "./models/Word"
+import { UserWord } from "./models/UserWord"
 
 
 
@@ -23,7 +27,7 @@ export const AppDataSource = new DataSource({
     username: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD || "",
     database: process.env.DB_NAME || "final_project_taps",
-    entities: [], //Role, User, Level, Challenge, Word, UserWord],
+    entities: [Role, User, Level, Challenge, Word, UserWord],
     migrations: [
         Roles1714390675301,
         Users1714392154222,
