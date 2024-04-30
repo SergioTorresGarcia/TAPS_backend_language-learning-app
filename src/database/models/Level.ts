@@ -1,13 +1,13 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 import { Word } from "./Word"
 
-@Entity()
-export class Level {
+@Entity('levels')
+export class Level extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number
 
     @Column({ name: 'name' })
-    username!: string
+    name!: string
 
     @Column({ name: 'created_at' })
     createdAt!: Date

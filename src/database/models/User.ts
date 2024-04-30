@@ -1,9 +1,9 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 import { Role } from "./Role"
 import { UserWord } from "./UserWord"
 
-@Entity()
-export class User {
+@Entity('users')
+export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number
 
@@ -21,6 +21,10 @@ export class User {
 
     @Column({ name: 'updated_at' })
     updatedAt!: Date
+
+    @Column({ name: 'role_id' })
+    roleId!: number
+
 
     //Role < Users
     @ManyToOne(() => Role, (role) => role.users)

@@ -1,11 +1,14 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 import { Word } from "./Word";
 import { UserWord } from "./UserWord";
 
-@Entity()
-export class Challenge {
+@Entity('challenges')
+export class Challenge extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number
+
+    @Column({ name: 'name' })
+    name!: string
 
     @Column({ name: 'created_at' })
     createdAt!: Date

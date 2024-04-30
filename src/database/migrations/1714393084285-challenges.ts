@@ -15,6 +15,12 @@ export class Challenges1714393084285 implements MigrationInterface {
                         generationStrategy: "increment",
                     },
                     {
+                        name: "name",
+                        type: "varchar",
+                        length: "200",
+                        isNullable: false
+                    },
+                    {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()",

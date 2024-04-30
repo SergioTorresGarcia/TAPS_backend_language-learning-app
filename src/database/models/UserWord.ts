@@ -1,9 +1,9 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 import { User } from "./User";
 import { Word } from "./Word";
 
-@Entity()
-export class UserWord {
+@Entity('user_words')
+export class UserWord extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number
 
@@ -12,6 +12,12 @@ export class UserWord {
 
     @Column({ name: 'updated_at' })
     updatedAt!: Date
+
+    @Column({ name: 'user_id' })
+    userId!: number
+
+    @Column({ name: 'word_id' })
+    wordId!: number
 
     //User < UserWords
     @ManyToOne(() => User, (user) => user.userwords)
