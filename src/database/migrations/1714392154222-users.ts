@@ -58,7 +58,8 @@ export class Users1714392154222 implements MigrationInterface {
                         onDelete: "CASCADE"
                     }
                 ]
-            })
+            }),
+            true
         )
     }
 
