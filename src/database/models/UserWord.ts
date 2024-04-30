@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { User } from "./User";
+import { Word } from "./Word";
 
 @Entity()
 export class UserWord {
@@ -10,5 +12,15 @@ export class UserWord {
 
     @Column({ name: 'updated_at' })
     updatedAt!: Date
+
+    //User < UserWords
+    @ManyToOne(() => User, (user) => user.userwords)
+    @JoinColumn({ name: 'user_id' })
+    user!: User;
+
+    //Word < UserWords
+    @ManyToOne(() => Word, (word) => word.userwords)
+    @JoinColumn({ name: 'word_id' })
+    word!: Word;
 
 }

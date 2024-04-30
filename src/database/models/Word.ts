@@ -1,4 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm"
+import { Level } from "./Level"
+import { Challenge } from "./Challenge"
+import { UserWord } from "./UserWord"
 
 @Entity()
 export class Word {
@@ -22,5 +25,19 @@ export class Word {
 
     @Column({ name: 'updated_at' })
     updatedAt!: Date
+
+    //Level < Words
+    @ManyToOne(() => Level, (level) => level.words)
+    @JoinColumn({ name: 'level_id' })
+    level!: Level;
+
+    //Challenge < Words
+    @ManyToOne(() => Challenge, (challenge) => challenge.words)
+    @JoinColumn({ name: 'challenge_id' })
+    challenge!: Challenge;
+
+    //Word > UserWords
+    @OneToMany(() => UserWord, (userword) => userword.word)
+    userwords!: UserWord[];
 
 }
