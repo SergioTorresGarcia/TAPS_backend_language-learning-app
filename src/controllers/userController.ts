@@ -52,3 +52,34 @@ export const getUsers = async (req: Request, res: Response) => {
 
 }
 
+export const getUserById = async (req: Request, res: Response) => {
+    try {
+        const userId = parseInt(req.params.id);
+
+        const users = await User.findOne({
+            where: { id: userId },
+            select: {
+                id: true,
+                username: true,
+                email: true,
+                createdAt: true,
+                updatedAt: true
+            },
+            relations: {
+                role: true
+            }
+        });
+
+        res.status(200).json({
+            success: true,
+            message: "User retrieved successfuly",
+            data: users
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "User cannot be retrieved",
+            error: error
+        })
+    }
+}
