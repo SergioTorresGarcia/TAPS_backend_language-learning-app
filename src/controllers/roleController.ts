@@ -2,8 +2,8 @@ import { Request, Response } from "express"
 import { Role } from "../database/models/Role";
 
 
-export const getRoles = (req: Request, res: Response) => {
-    const roles = Role.find();
+export const getRoles = async (req: Request, res: Response) => {
+    const roles = await Role.find();
     res.status(200).json({
         success: true,
         message: "Roles retrieved successfuly",
@@ -42,10 +42,10 @@ export const createRole = async (req: Request, res: Response) => {
 }
 
 export const updateRole = async (req: Request, res: Response) => {
-    try {
-        const name = req.body.name;
-        const userId = parseInt(req.params.id);
+    const { name } = req.body;
+    const userId = parseInt(req.params.id);
 
+    try {
         if (name.length >= 40 || name.length <= 0) {
             return res.status(400).json({
                 success: false,
@@ -53,19 +53,22 @@ export const updateRole = async (req: Request, res: Response) => {
             })
         }
 
-        const newRole = await Role.update(
-            { name: name },
-            { id: userId }
-        )
+        const role = await Role.findOne({ where: { id: userId } });
+        if (!role) {
+            return res.status(404).json({
+                success: false,
+                message: 'Role not found'
+            });
+        }
+        role.name = name;
+        const updatedRole = await role.save();
 
         res.status(200).json({
             success: true,
-            message: "Role updated successfuly",
-            data: newRole
-        })
-
+            message: 'Role updated successfully',
+            data: updatedRole
+        });
     } catch (error) {
-
         res.status(500).json({
             success: false,
             message: "Role was not updated",
@@ -92,9 +95,7 @@ export const deleteRole = (req: Request, res: Response) => {
             "success": true,
             "message": "Role deleted successfuly"
         })
-
     } catch (error) {
-
         res.status(500).json({
             success: false,
             message: "Role was not updated",
