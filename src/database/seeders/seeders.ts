@@ -50,7 +50,7 @@ const generateFakeUsers = () => {
     const user = new User();
     let name = faker.internet.userName();
     user.username = name.toLowerCase();
-    user.email = name + '@mail.com' // faker.internet.email();
+    user.email = name.toLowerCase() + '@mail.com' // faker.internet.email();
     user.passwordHash = bcrypt.hashSync("Aa123456", 8)
 
     return user;

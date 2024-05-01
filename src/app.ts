@@ -3,7 +3,7 @@ import cors from "cors";
 
 import { roleRouter } from "./routes/roleRoutes";
 import { authRouter } from "./routes/authRoutes";
-// import { userRouter } from "./routes/userRoutes";
+import { userRouter } from "./routes/userRoutes";
 
 export const app = express();
 app.use(express.json());
@@ -25,5 +25,4 @@ app.get("/healthy", (req, res) => {
 // ENDPOINTS of the project:
 app.use('/', roleRouter)
 app.use('/', authRouter)
-
-// app.use('/', userRouter)
+app.use('/', userRouter)
