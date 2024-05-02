@@ -4,9 +4,10 @@ import { Router } from "express";
 export const roleRouter = Router();
 
 import { getRoles, createRole, updateRole, deleteRole } from "../controllers/roleController";
+import { auth } from "../middlewares/auth";
 
-// Authorisation:
-roleRouter.get("/api/auth/roles", getRoles)
-roleRouter.post("/api/auth/roles", createRole)
-roleRouter.put("/api/auth/roles/:id", updateRole)
-roleRouter.delete("/api/auth/roles/:id", deleteRole)
+// Roles:
+roleRouter.get("/roles", auth, getRoles)
+roleRouter.post("/roles", auth, createRole)
+roleRouter.put("/roles/:id", auth, updateRole)
+roleRouter.delete("/roles/:id", auth, deleteRole)
