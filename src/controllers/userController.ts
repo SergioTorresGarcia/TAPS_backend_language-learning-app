@@ -140,3 +140,37 @@ export const getProfile = async (req: Request, res: Response) => {
         })
     }
 }
+
+export const updateSelfProfile = async (req: Request, res: Response) => {
+    try {
+        const userId = req.tokenData.userId;
+        const username = req.body.username;
+
+        const userProfile = await User.findOne({
+            where: {
+                id: userId
+            }
+        });
+
+        if (!userProfile) {
+            return res.status(404).json({
+                success: false,
+                message: "Profile not found"
+            });
+        }
+        userProfile.username = username as string;
+        const updatedProfile = await userProfile.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Your profile has been updated successfuly",
+            data: updatedProfile
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Your profile cannot be updated",
+            error: error
+        })
+    }
+}
