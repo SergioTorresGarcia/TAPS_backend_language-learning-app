@@ -97,6 +97,8 @@ export const login = async (req: Request, res: Response) => {
                 expiresIn: "500h" // optional variable parameter
             }
         )
+        console.log(token);
+
 
         res.status(201).json({
             success: true,

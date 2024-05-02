@@ -110,3 +110,33 @@ export const deleteUserById = async (req: Request, res: Response) => {
     }
 }
 
+
+// for user:
+export const getProfile = async (req: Request, res: Response) => {
+    try {
+        const userId = req.tokenData.userId
+
+        console.log(userId);
+
+        const user = await User.findOne({
+            where: { id: userId }
+        })
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found"
+            })
+        }
+        res.status(200).json({
+            success: true,
+            message: "Profile retrieved successfuly",
+            data: user
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Profile cannot be retrieved",
+            error: error
+        })
+    }
+}
