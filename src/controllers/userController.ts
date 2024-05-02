@@ -83,3 +83,30 @@ export const getUserById = async (req: Request, res: Response) => {
         })
     }
 }
+
+export const deleteUserById = async (req: Request, res: Response) => {
+    try {
+        const userId = parseInt(req.params.id);
+        const user = await User.findOne({
+            where: { id: userId }
+        })
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found"
+            })
+        }
+        await User.remove(user)
+        res.status(200).json({
+            success: true,
+            message: "User deleted successfuly"
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "User cannot be deleted",
+            error: error
+        })
+    }
+}
+

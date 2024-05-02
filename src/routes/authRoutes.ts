@@ -6,5 +6,5 @@ export const authRouter = Router();
 import { login, register } from "../controllers/authController";
 
 // Authorisation:
-authRouter.post("/api/auth/register", register)
-authRouter.post("/api/auth/login", login)
+authRouter.post("/auth/register", register)
+authRouter.post("/auth/login", login)
