@@ -87,6 +87,12 @@ export const getUserById = async (req: Request, res: Response) => {
 export const deleteUserById = async (req: Request, res: Response) => {
     try {
         const userId = parseInt(req.params.id);
+        if (req.tokenData.roleName == "admin" && userId == req.tokenData.userId) {
+            return res.status(403).json({
+                success: false,
+                message: "Admin profile cannot be deleted."
+            })
+        }
         const user = await User.findOne({
             where: { id: userId }
         })
@@ -170,6 +176,35 @@ export const updateSelfProfile = async (req: Request, res: Response) => {
         res.status(500).json({
             success: false,
             message: "Your profile cannot be updated",
+            error: error
+        })
+    }
+}
+
+export const deleteSelfProfile = async (req: Request, res: Response) => {
+    try {
+        const userId = req.tokenData.userId;
+        const userProfile = await User.findOne({
+            where: {
+                id: userId
+            }
+        })
+        if (!userProfile) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found"
+            })
+        }
+
+        await User.remove(userProfile)
+        res.status(200).json({
+            success: true,
+            message: "Profile deleted successfully"
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Profile cannot be deleted",
             error: error
         })
     }

@@ -4,6 +4,7 @@ import { Router } from "express";
 export const userRouter = Router();
 
 import {
+    deleteSelfProfile,
     updateSelfProfile,
     getProfile,
     deleteUserById,
@@ -17,6 +18,7 @@ import { auth } from "../middlewares/auth";
 // Endpoints fot the users:
 userRouter.get("/users/me", auth, getProfile)
 userRouter.put("/users/me", auth, updateSelfProfile)
+userRouter.delete("/users/me", auth, deleteSelfProfile)
 
 
 // Endpoints for the admin:
