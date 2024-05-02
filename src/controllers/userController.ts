@@ -184,6 +184,12 @@ export const updateSelfProfile = async (req: Request, res: Response) => {
 export const deleteSelfProfile = async (req: Request, res: Response) => {
     try {
         const userId = req.tokenData.userId;
+        if (req.tokenData.roleName == "admin") {
+            return res.status(403).json({
+                success: false,
+                message: "Admin profile cannot be deleted."
+            })
+        }
         const userProfile = await User.findOne({
             where: {
                 id: userId
