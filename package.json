@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/server.ts",
-    "run-migrations": "typeorm-ts-node-commonjs migration:run -d ./src/database/db.ts",
+    "migrations": "typeorm-ts-node-commonjs migration:run -d ./src/database/db.ts",
     "revert-migrations": "typeorm-ts-node-commonjs migration:revert -d ./src/database/db.ts",
     "seed": "ts-node ./src/database/seeders/seeders.ts",
     "test": "echo \"Error: no test specified\" && exit 1"

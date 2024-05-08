@@ -4,6 +4,8 @@ import cors from "cors";
 import { roleRouter } from "./routes/roleRoutes";
 import { authRouter } from "./routes/authRoutes";
 import { userRouter } from "./routes/userRoutes";
+import { wordRouter } from "./routes/wordRoutes";
+import { userWordRouter } from "./routes/userWordRoutes";
 
 export const app = express();
 app.use(express.json());
@@ -26,3 +28,5 @@ app.get("/healthy", (req, res) => {
 app.use('/', roleRouter)
 app.use('/', authRouter)
 app.use('/', userRouter)
+app.use('/', wordRouter)
+app.use('/', userWordRouter)

@@ -47,7 +47,6 @@ export const register = async (req: Request, res: Response) => {
 export const login = async (req: Request, res: Response) => {
     try {
         const { email, password } = req.body;
-        console.log("body", email, password);
 
         if (!email || !password) {
             return res.status(400).json({
@@ -69,10 +68,9 @@ export const login = async (req: Request, res: Response) => {
                 }
             }
         })
-        console.log("user", user);
 
-        if (!user) {
-            res.status(400).json({
+        if (user === null) {
+            return res.status(400).json({
                 success: false,
                 message: "User not found"
             })
@@ -88,7 +86,8 @@ export const login = async (req: Request, res: Response) => {
 
         //if all is correct, then we generate a token for this session
         const token = jwt.sign({
-            userName: user?.username,
+            username: user?.username,
+            email: user?.email,
             userId: user?.id,
             roleName: user?.role.name
         },
@@ -97,8 +96,6 @@ export const login = async (req: Request, res: Response) => {
                 expiresIn: "500h" // optional variable parameter
             }
         )
-        console.log(token);
-
 
         res.status(201).json({
             success: true,
