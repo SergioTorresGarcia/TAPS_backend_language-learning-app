@@ -71,11 +71,14 @@ export const getWordToPlay = async (req: Request, res: Response) => {
 export const setUpWordAsLearnt = async (req: Request, res: Response) => {
     try {
         const userId = req.tokenData.userId;
+
+        // All words
+        const words = await Word.find();
+        // Find user's words
         const learntWords = await UserWord.find({ where: { userId }, relations: ["word"] });
+        const learntConcepts = learntWords?.map(item => item.word.EN);
 
-        const currentWord = learntWords.pop();
-        console.log(currentWord);
-
+        const currentWord = words.find(word => !learntConcepts.includes(word.EN));
         const wordId = currentWord?.id
 
         const newUserWord = await UserWord.create({
