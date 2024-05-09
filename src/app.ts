@@ -6,6 +6,7 @@ import { authRouter } from "./routes/authRoutes";
 import { userRouter } from "./routes/userRoutes";
 import { wordRouter } from "./routes/wordRoutes";
 import { userWordRouter } from "./routes/userWordRoutes";
+import { levelRouter } from "./routes/levelRoutes";
 
 export const app = express();
 app.use(express.json());
@@ -30,3 +31,4 @@ app.use('/', authRouter)
 app.use('/', userRouter)
 app.use('/', wordRouter)
 app.use('/', userWordRouter)
+app.use('/', levelRouter)
