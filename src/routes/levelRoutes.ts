@@ -8,4 +8,4 @@ import { auth } from "../middlewares/auth";
 
 // Levels:
 levelRouter.get("/levels", auth, getLevels)
-levelRouter.post("/levels", auth, createNewLevel)
+levelRouter.post("/levels/new", auth, createNewLevel)

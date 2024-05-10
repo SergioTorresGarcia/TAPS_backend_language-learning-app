@@ -110,15 +110,14 @@ export const getWordsFromLevelToDivert = async (req: Request, res: Response) => 
 
 export const createNewWord = async (req: Request, res: Response) => {
     try {
-        const { EN, JP, romanji, image, level_id, challenge_id } = req.body
+        const { EN, JP, romanji, image, level_id } = req.body
 
         const newRole = await Word.create({
             EN: EN,
             JP: JP,
             romanji: romanji,
             image: image,
-            level: { id: level_id },
-            challenge: { id: challenge_id }
+            level: { id: level_id }
         }).save()
 
         res.status(201).json({
@@ -130,6 +129,67 @@ export const createNewWord = async (req: Request, res: Response) => {
         res.status(500).json({
             success: false,
             message: "New word cannot be created",
+            error: error
+        })
+    }
+}
+
+export const updateWord = async (req: Request, res: Response) => {
+    const { EN, JP, romanji, image, level_id } = req.body
+    const wordId = parseInt(req.params.word_id);
+
+    try {
+        const word = await Word.findOne({ where: { id: wordId } });
+        if (!word) {
+            return res.status(404).json({
+                success: false,
+                message: 'Word not found'
+            });
+        }
+        word.EN = EN;
+        word.JP = JP;
+        word.romanji = romanji;
+        word.image = image;
+        word.levelId = parseInt(level_id);
+
+        const updatedWord = await word.save();
+
+        res.status(200).json({
+            success: true,
+            message: 'Word updated successfully',
+            data: updatedWord
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Word was not updated",
+            error: error
+        })
+    }
+}
+
+export const deleteWord = (req: Request, res: Response) => {
+    try {
+        const wordId = parseInt(req.params.word_id);
+
+        if (!wordId) {
+            return res.status(404).json({
+                success: false,
+                message: "Word not found"
+            })
+        }
+        Word.delete(
+            { id: wordId }
+        )
+
+        res.status(200).json({
+            "success": true,
+            "message": "Word deleted successfuly"
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Word was not updated",
             error: error
         })
     }
