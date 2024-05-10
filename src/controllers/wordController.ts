@@ -117,8 +117,7 @@ export const createNewWord = async (req: Request, res: Response) => {
             JP: JP,
             romanji: romanji,
             image: image,
-            level: { id: level_id },
-            challenge: { id: challenge_id }
+            level: { id: level_id }
         }).save()
 
         res.status(201).json({

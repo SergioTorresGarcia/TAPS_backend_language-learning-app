@@ -216,16 +216,16 @@ const wordSeedDatabase = async () => {
         }));
         const wordLvl4 = [
             // Proficient level
-            { id: 31, EN: "TEA", JP: "おちゃ", romanji: "Ocha", image: "./icons/tea },
-            { id: 32, EN: "ALARM", JP: "あらーむ", romanji: "Arāmu", image: "./icons/alarm },
-            { id: 33, EN: "KIMONO", JP: "きもの", romanji: "Kimono", image: "./icons/kimono },
-            { id: 34, EN: "BED", JP: "ベッド", romanji: "Beddo", image: "./icons/bed },
-            { id: 35, EN: "BOTTLE", JP: "ぼとる", romanji: "Botoru", image: "./icons/bottle },
-            { id: 36, EN: "CASTLE", JP: "しろ", romanji: "Shiro", image: "./icons/castle },
-            { id: 37, EN: "OPEN", JP: "あいた", romanji: "Aita", image: "./icons/open },
-            { id: 38, EN: "CLOSED", JP: "クローズド", romanji: "Kurōzudo", image: "./icons/closed },
-            { id: 39, EN: "COCKTAIL", JP: "カクテル", romanji: "Kakuteru", image: "./icons/cocktail },
-            { id: 40, EN: "FRENCH FRIES", JP: "フライドポテト", romanji: "Furaidopoteto", image: "./icons/french_fries },
+            { id: 31, EN: "TEA", JP: "おちゃ", romanji: "Ocha", image: "./icons/tea.png", levelId: 4 },
+            { id: 32, EN: "ALARM", JP: "あらーむ", romanji: "Arāmu", image: "./icons/alarm.png", levelId: 4 },
+            { id: 33, EN: "KIMONO", JP: "きもの", romanji: "Kimono", image: "./icons/kimono.png", levelId: 4 },
+            { id: 34, EN: "BED", JP: "ベッド", romanji: "Beddo", image: "./icons/bed.png", levelId: 4 },
+            { id: 35, EN: "BOTTLE", JP: "ぼとる", romanji: "Botoru", image: "./icons/bottle.png", levelId: 4 },
+            { id: 36, EN: "CASTLE", JP: "しろ", romanji: "Shiro", image: "./icons/castle.png", levelId: 4 },
+            { id: 37, EN: "OPEN", JP: "あいた", romanji: "Aita", image: "./icons/open.png", levelId: 4 },
+            { id: 38, EN: "CLOSED", JP: "クローズド", romanji: "Kurōzudo", image: "./icons/closed.png", levelId: 4 },
+            { id: 39, EN: "COCKTAIL", JP: "カクテル", romanji: "Kakuteru", image: "./icons/cocktail.png", levelId: 4 },
+            { id: 40, EN: "FRENCH FRIES", JP: "フライドポテト", romanji: "Furaidopoteto", image: "./icons/french_fries.png", levelId: 4 },
         ];
         await Promise.all(wordLvl4.map(async data => {
             const word = new Word();
