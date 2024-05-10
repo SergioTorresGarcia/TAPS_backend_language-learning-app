@@ -110,14 +110,15 @@ export const getWordsFromLevelToDivert = async (req: Request, res: Response) => 
 
 export const createNewWord = async (req: Request, res: Response) => {
     try {
-        const { EN, JP, romanji, image } = req.body
-
+        const { EN, JP, romanji, image, level_id, challenge_id } = req.body
 
         const newRole = await Word.create({
             EN: EN,
             JP: JP,
             romanji: romanji,
             image: image,
+            level: { id: level_id },
+            challenge: { id: challenge_id }
         }).save()
 
         res.status(201).json({
@@ -128,7 +129,7 @@ export const createNewWord = async (req: Request, res: Response) => {
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "Role cannot be created",
+            message: "New word cannot be created",
             error: error
         })
     }
