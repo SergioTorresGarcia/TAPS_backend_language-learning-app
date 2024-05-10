@@ -32,38 +32,6 @@ export const getLearntWords = async (req: Request, res: Response) => {
     }
 }
 
-// Gives the word at play at the moment (current word)
-export const getWordToPlay = async (req: Request, res: Response) => {
-    try {
-        const userId = req.tokenData.userId;
-
-        // All words
-        const words = await Word.find();
-        // Find user's words
-        const learntWords = await UserWord.find({ where: { userId }, relations: ["word"] });
-        const learntConcepts = learntWords?.map(item => item.word.EN);
-
-        const currentWord = words.find(word => !learntConcepts.includes(word.EN));
-        if (learntWords.length === 0) {
-            return res.status(404).json({
-                success: false,
-                message: "No words found for the user"
-            });
-        }
-
-        return res.status(200).json({
-            success: true,
-            message: "Current word to play retrieved successfully",
-            data: currentWord
-        });
-    } catch (error) {
-        return res.status(500).json({
-            success: false,
-            message: "Failed to retrieve word",
-            error: error
-        });
-    }
-}
 
 
 ///////////////////////////////////////////////////////
@@ -79,6 +47,7 @@ export const setUpWordAsLearnt = async (req: Request, res: Response) => {
         const learntConcepts = learntWords?.map(item => item.word.EN);
 
         const currentWord = words.find(word => !learntConcepts.includes(word.EN));
+
         const wordId = currentWord?.id
 
         const newUserWord = await UserWord.create({
