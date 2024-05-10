@@ -9,8 +9,6 @@ import { getLearntWords, getWordToDivert, setUpWordAsLearnt } from "../controlle
 // UserWords:
 userWordRouter.get("/words/learnt", auth, getLearntWords)
 
-
-
 userWordRouter.get("/words/divert", auth, getWordToDivert)
 userWordRouter.post("/words/add-to-learnt", auth, setUpWordAsLearnt)
 

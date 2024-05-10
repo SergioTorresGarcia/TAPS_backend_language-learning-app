@@ -13,6 +13,7 @@ import {
 } from "../controllers/userController";
 
 import { auth } from "../middlewares/auth";
+import { isAdmin } from "../middlewares/isAdmin";
 
 
 // Endpoints fot the users:
@@ -22,6 +23,6 @@ userRouter.delete("/users/me", auth, deleteSelfProfile)
 
 
 // Endpoints for the admin:
-userRouter.get("/users", auth, getUsers)
-userRouter.get("/users/:id", auth, getUserById)
-userRouter.delete("/users/:id", auth, deleteUserById)
+userRouter.get("/users", auth, isAdmin, getUsers)
+userRouter.get("/users/:id", auth, isAdmin, getUserById)
+userRouter.delete("/users/:id", auth, isAdmin, deleteUserById)
