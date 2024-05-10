@@ -8,12 +8,11 @@ import { createNewWord, getOneWord, getWordToPlay, getWords, getWordsFromLevel, 
 
 // Words:
 wordRouter.get("/words", auth, getWords)
-wordRouter.post("/words", auth, createNewWord)
+wordRouter.post("/words/new", auth, createNewWord)
 wordRouter.get("/words/first", auth, getOneWord)
 
 wordRouter.get("/words/level/:level_id", auth, getWordsFromLevel)
 wordRouter.get("/words/level/diversion/:level_id", auth, getWordsFromLevelToDivert)
-wordRouter.post("/words/new", auth, createNewWord)
 
 
 wordRouter.get("/words/current", auth, getWordToPlay)
