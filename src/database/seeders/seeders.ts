@@ -148,22 +148,22 @@ const wordSeedDatabase = async () => {
         await AppDataSource.initialize();
 
         const wordLvl1 = [
-            // 1 level / 5 challenges / 10 words
+            // 1 level / 10 words
             // Basic level
-            { id: 1, EN: "CITY", JP: "トシ", romanji: "Toshi", image: "./icons/city.png" },
-            { id: 2, EN: "MUSEUM", JP: "びじゅつかん", romanji: "Bijutsukan", image: "./icons/museum.png" },
+            { id: 1, EN: "CITY", JP: "トシ", romanji: "Toshi", image: "./icons/city.png", levelId: 1 },
+            { id: 2, EN: "MUSEUM", JP: "びじゅつかん", romanji: "Bijutsukan", image: "./icons/museum.png", levelId: 1 },
 
-            { id: 3, EN: "HOUSE", JP: "いえ", romanji: "Ie", image: "./icons/house.png" },
-            { id: 4, EN: "AIRPORT", JP: "くうこう", romanji: "Kūkō", image: "./icons/airport.png" },
+            { id: 3, EN: "HOUSE", JP: "いえ", romanji: "Ie", image: "./icons/house.png", levelId: 1 },
+            { id: 4, EN: "AIRPORT", JP: "くうこう", romanji: "Kūkō", image: "./icons/airport.png", levelId: 1 },
 
-            { id: 5, EN: "FASHION", JP: "ファッション", romanji: "Fasshon", image: "./icons/fashion.png" },
-            { id: 6, EN: "CAR", JP: "くるま", romanji: "Kuruma", image: "./icons/car.png" },
+            { id: 5, EN: "FASHION", JP: "ファッション", romanji: "Fasshon", image: "./icons/fashion.png", levelId: 1 },
+            { id: 6, EN: "CAR", JP: "くるま", romanji: "Kuruma", image: "./icons/car.png", levelId: 1 },
 
-            { id: 7, EN: "TRAIN", JP: "でんしゃ", romanji: "Densha", image: "./icons/train.png" },
-            { id: 8, EN: "BIKE", JP: "じてんしゃ", romanji: "Jitensha", image: "./icons/bike.png" },
+            { id: 7, EN: "TRAIN", JP: "でんしゃ", romanji: "Densha", image: "./icons/train.png", levelId: 1 },
+            { id: 8, EN: "BIKE", JP: "じてんしゃ", romanji: "Jitensha", image: "./icons/bike.png", levelId: 1 },
 
-            { id: 9, EN: "PLANE", JP: "ひこうき", romanji: "Hikōki", image: "./icons/plane.png" },
-            { id: 10, EN: "BOAT", JP: "ふね", romanji: "Fune", image: "./icons/boat.png" },
+            { id: 9, EN: "PLANE", JP: "ひこうき", romanji: "Hikōki", image: "./icons/plane.png", levelId: 1 },
+            { id: 10, EN: "BOAT", JP: "ふね", romanji: "Fune", image: "./icons/boat.png", levelId: 1 },
         ];
         await Promise.all(wordLvl1.map(async data => {
             const word = new Word();

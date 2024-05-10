@@ -28,9 +28,6 @@ export class Word extends BaseEntity {
     @Column({ name: 'level_id' })
     levelId!: number
 
-    @Column({ name: 'challenge_id' })
-    challengeId!: number
-
     //Level < Words
     @ManyToOne(() => Level, (level) => level.words)
     @JoinColumn({ name: 'level_id' })
