@@ -1,6 +1,5 @@
 import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 import { Level } from "./Level"
-import { Challenge } from "./Challenge"
 import { UserWord } from "./UserWord"
 
 @Entity('words')
@@ -36,11 +35,6 @@ export class Word extends BaseEntity {
     @ManyToOne(() => Level, (level) => level.words)
     @JoinColumn({ name: 'level_id' })
     level!: Level;
-
-    //Challenge < Words
-    @ManyToOne(() => Challenge, (challenge) => challenge.words)
-    @JoinColumn({ name: 'challenge_id' })
-    challenge!: Challenge;
 
     //Word > UserWords
     @OneToMany(() => UserWord, (userword) => userword.word)
