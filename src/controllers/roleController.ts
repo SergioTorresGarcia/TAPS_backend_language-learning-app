@@ -79,16 +79,16 @@ export const updateRole = async (req: Request, res: Response) => {
 
 export const deleteRole = (req: Request, res: Response) => {
     try {
-        const userId = parseInt(req.params.id);
+        const roleId = parseInt(req.params.id);
 
-        if (!userId) {
+        if (!roleId) {
             return res.status(404).json({
                 success: false,
                 message: "User not found"
             })
         }
         Role.delete(
-            { id: userId }
+            { id: roleId }
         )
 
         res.status(200).json({
