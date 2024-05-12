@@ -44,10 +44,6 @@ export class Words1714393188539 implements MigrationInterface {
                         type: "int"
                     },
                     {
-                        name: "challenge_id",
-                        type: "int"
-                    },
-                    {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()",
@@ -63,12 +59,6 @@ export class Words1714393188539 implements MigrationInterface {
                     {
                         columnNames: ["level_id"],
                         referencedTableName: "levels",
-                        referencedColumnNames: ["id"],
-                        onDelete: "CASCADE"
-                    },
-                    {
-                        columnNames: ["challenge_id"],
-                        referencedTableName: "challenges",
                         referencedColumnNames: ["id"],
                         onDelete: "CASCADE"
                     }

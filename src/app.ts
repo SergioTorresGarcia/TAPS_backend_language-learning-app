@@ -1,13 +1,16 @@
 import express from "express";
-// import cors from "cors";
+import cors from "cors";
 
-// import { roleRouter } from "./routes/roleRoutes";
-// import { authRouter } from "./routes/authRoutes";
-// import { userRouter } from "./routes/userRoutes";
+import { roleRouter } from "./routes/roleRoutes";
+import { authRouter } from "./routes/authRoutes";
+import { userRouter } from "./routes/userRoutes";
+import { wordRouter } from "./routes/wordRoutes";
+import { userWordRouter } from "./routes/userWordRoutes";
+import { levelRouter } from "./routes/levelRoutes";
 
 export const app = express();
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 app.get("/alive", (req, res) => {
     res.send("Server is alive")
@@ -23,9 +26,9 @@ app.get("/healthy", (req, res) => {
 
 
 // ENDPOINTS of the project:
-
-// app.use('/', roleRouter)
-
-// app.use('/', authRouter)
-
-// app.use('/', userRouter)
+app.use('/', roleRouter)
+app.use('/', authRouter)
+app.use('/', userRouter)
+app.use('/', wordRouter)
+app.use('/', userWordRouter)
+app.use('/', levelRouter)
