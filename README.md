@@ -339,9 +339,10 @@ luego hace cosas mucho más sólidas, fáciles de mantener y escalables.
 -   Concept design: create an Entity-Relationship Diagram where we define tables, their attributes, and the relationships with one another.
 -   Normalization: eliminate redundancy, identify primary keys (PK) and foreign keys (FK)
 -   Logical thinking: decide what can and cannot be 'NULL' (not required) and which are 'UNIQUE' fields
-</details>
 
 ![Diagram](src/img/DIAGRAM-FINAL-PROJECT-5-tables.png)
+</details>
+
 
 <details>
   <summary>2. DOCKER - Creating a container</summary>
