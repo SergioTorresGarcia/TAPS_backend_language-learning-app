@@ -33,7 +33,6 @@ export const getLearntWords = async (req: Request, res: Response) => {
 }
 
 
-
 ///////////////////////////////////////////////////////
 // Set up a word as "LEARNT"
 export const setUpWordAsLearnt = async (req: Request, res: Response) => {
@@ -69,10 +68,6 @@ export const setUpWordAsLearnt = async (req: Request, res: Response) => {
         });
     }
 }
-
-
-
-
 
 // Lists the other words from the same level
 // These plus the learnt words become the diversion group

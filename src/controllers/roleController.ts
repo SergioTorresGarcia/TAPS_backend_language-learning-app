@@ -11,7 +11,6 @@ export const getRoles = async (req: Request, res: Response) => {
     })
 }
 
-
 export const createRole = async (req: Request, res: Response) => {
     try {
         const name = (req.body.name).trim();

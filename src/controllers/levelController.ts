@@ -4,6 +4,8 @@ import { Level } from "../database/models/Level";
 
 export const getLevels = async (req: Request, res: Response) => {
     const levels = await Level.find();
+    console.log(levels);
+
     res.status(200).json({
         success: true,
         message: "Levels retrieved successfuly",

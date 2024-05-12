@@ -1,7 +1,6 @@
 import { Request, Response } from "express"
 import { Word } from "../database/models/Word";
 import { UserWord } from "../database/models/UserWord";
-import { log } from "console";
 
 
 export const getWords = async (req: Request, res: Response) => {
