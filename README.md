@@ -5,8 +5,37 @@ This is the FINAL PROJECT of the Full Stack Development Bootcamp with <a href="h
 
 <hr/>
 
-<div style="display: flex;">
-  <div style="flex: 60%; padding: 0 10px;">
+<div align="center">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express.js"/>
+    <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+    <img src="https://img.shields.io/badge/DOCKER-2020BF?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+</div>
+
+
+<hr/>
+
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#idea-overview">Idea</a></li>
+    <li><a href="#general-features">Features</a></li>
+    <li><a href="#database-diagram-mysql">Database diagram</a></li>
+    <li><a href="#instalation-local">Instalation</a></li>
+    <li><a href="#all-routes">Endpoints / Pages</a></li>
+    <li><a href="#project-ideation--analysis">Project ideation & analysis</a></li>
+    <li><a href="#project-execution">Project execution</a></li>
+    <li><a href="#deployment">Deployment</a></li>
+    <li><a href="#author">Author / Contact </a></li>
+  </ol>
+</details>
+
+<hr/>
+
+
+
 
 ## Idea overview
 This is a language learning program (mobile first) designed to help users learn and practice Japanese vocabulary in an enjoyable and engaging way. 
@@ -22,7 +51,13 @@ With Taps, learning becomes playtime. Engaging games, review modes, and interact
 
 #### Memorable Illustrations
 Boost your memory retention with our captivating visuals and vibrant and soothing colors. Each word is accompanied by an eye-catching image, forging strong associations between the word and its meaning. Say hello to seamless language recall!
-  </div>
+  
+
+  <div style="display: flex;">
+  <div style="flex: 35%; padding: 0 10px;">
+
+![Profile Demo](src/video/demoProfile.gif)
+</div>
   <div style="flex: 35%; padding: 0 auto; margin: 0 auto;">
 
 ![Game Demo](src/video/demoGame.gif)
@@ -31,41 +66,6 @@ Boost your memory retention with our captivating visuals and vibrant and soothin
 </div>
 
 
-
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#project-description-es">Description (ES)</a></li>
-    <li><a href="#challenge">Challenge</a></li>
-    <li><a href="#database-diagram">Database diagram</a></li>
-    <li><a href="#instalation-local">Instalation</a></li>
-    <li><a href="#endpoints">Endpoints</a></li>
-    <li><a href="#project-development">Project development</a></li>
-    <li><a href="#deployment">Deployment</a></li>
-    <li><a href="#author">Author / Contact </a></li>
-  </ol>
-</details>
-
-<hr/>
-
-
-<div align="center">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-    <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
-    <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express.js"/>
-    <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-    <img src="https://img.shields.io/badge/DOCKER-2020BF?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-</div>
-
-<hr/>
-
-<div style="display: flex;" align="left">
-  <div style="flex: 35%; padding: 0 10px;">
-
-![Profile Demo](src/video/demoProfile.gif)
-</div>
-  <div style="flex: 60%; padding: 0 10px;">
 
 ## General features
 
@@ -92,10 +92,8 @@ Boost your memory retention with our captivating visuals and vibrant and soothin
 - Register / Login / Editable Profile views
 - Views tha consum all endpoints from backend (at least 2 full CRUDs)
 
-    </div>
-</div>
 
-<hr/>
+
 
 ## Database diagram (MySQL)
 <div align="center">
