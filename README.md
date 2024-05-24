@@ -508,7 +508,7 @@ you will need -h (host), -P (port), -u (username) and -p (password)
 
 ## Deployment
 
-*PENDING DEPLOYMENT*
+https://master.dvdetud9ckjiz.amplifyapp.com/
 
 
 ## Author
