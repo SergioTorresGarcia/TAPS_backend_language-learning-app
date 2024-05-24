@@ -14,7 +14,7 @@ const startServer = () => {
             })
         })
         .catch((error: any) => {
-            console.log("error")
+            console.log("Error connecting to the database:")
         })
     // app.listen(4500, () => console.log("Servidor levantado en 4500"))
 }
